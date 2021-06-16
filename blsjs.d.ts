@@ -90,7 +90,6 @@ export declare class Bignum {
 export declare class Util {
   static hash256(msg: Uint8Array): Uint8Array;
   static hex_str(msg: Uint8Array): string;
-  static get_exception_message(errorPtr: number): string;
 }
 
 export interface ModuleInstance {
