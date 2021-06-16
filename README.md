@@ -1,3 +1,71 @@
+# Important Notice
+
+This is unofficial patch build for the latest js-bindings of [bls-signatures](https://github.com/Chia-Network/bls-signatures).  
+Consider this branch as a temporary package instead of the unknown `0.2.5` version package published at the npm registry.
+
+**The problem**
+
+If you install `bls-signatures` via `npm install bls-signature`, you will install `bls-signatures` of version 0.2.5,
+whose source code has not yet been published to the original [GitHub repository](https://github.com/Chia-Network/bls-signatures).  
+(Maybe a developer built and published its private source code into the npm registry)
+
+I created this branch because I'm worried to run this unknown '0.2.5' version of `bls-signatures` on my own computer.
+
+**How to reproduce this unofficial npm package**  
+
+You will(or should) ask me something like  
+"How can I trust this unofficial npm package instead of the one in original npm registry?"
+
+I'm telling you how you can trust this package, by showing how to reproduce the content of this repository precisely.
+
+0. Check node/cmake/emscripten exists in your environment or install them if they are missing.  
+See https://emscripten.org/docs/getting_started/downloads.html for emscripten installation.  
+For my current environment, I use
+   - Ubuntu Ubuntu 20.04.2
+   - emsdk 2.0.23 (77b065ace39e6ab21446e13f92897f956c80476a)
+   - node-14.15.5-64bit
+   - cmake 3.16.3
+
+1. Git clone from the trusted source code
+```shell
+cd <directory you like>
+git clone https://github.com/Chia-Network/bls-signatures
+cd bls-signatures
+git checkout 6aca6349bd6c8ed369672307885df33cdcd124f9 # You will be warned by git as it is `detached-state` but don't worry.
+```
+2. Build js-binding
+```shell
+mkdir js_build && cd js_build
+cmake ../ -DCMAKE_TOOLCHAIN_FILE=/PATH-TO-EMSDK-ROOT/emsdk/upstream/emscripten/cmake/Modules/Platform/Emscripten.cmake
+cmake --build . --
+```
+3. Check out the products
+```shell
+ls -l js-bindings/
+
+# You will see output like this.
+# The files should be the same as contents of this branch except for this README
+#
+# drwxrwxr-x 4 chiaminejp chiaminejp   4096  June 16 11:09 CMakeFiles
+# -rw-rw-r-- 1 chiaminejp chiaminejp  16817  June 16 11:09 Makefile
+# -rw-rw-r-- 1 chiaminejp chiaminejp   6591  June 16 11:09 README.md
+# -rw-rw-r-- 1 chiaminejp chiaminejp   4091  June 16 11:09 blsjs.d.ts
+# -rw-rw-r-- 1 chiaminejp chiaminejp  47671  June 16 11:10 blsjs.js
+# -rwxrwxr-x 1 chiaminejp chiaminejp 248515  June 16 11:10 blsjs.wasm
+# -rw-rw-r-- 1 chiaminejp chiaminejp   1002  June 16 11:09 cmake_install.cmake
+# -rw-rw-r-- 1 chiaminejp chiaminejp 100600  June 16 11:09 package-lock.json
+# -rw-rw-r-- 1 chiaminejp chiaminejp   1290  June 16 11:09 package.json
+# drwxrwxr-x 2 chiaminejp chiaminejp   4096  June 16 11:09 tests
+```
+
+(4. publish the above content to this branch)  
+This process is for me only.  
+After build js-bindings of bls-signature, I always edit `README.md` to include this 'Important Notice' and
+`git push` to this `npm` branch.  
+Note: This `npm` branch is an orphan branch and not a derivation of any other branches.
+
+---
+
 ## bls-signatures
 
 JavaScript library that implements BLS signatures with aggregation as in [Boneh, Drijvers, Neven 2018](https://crypto.stanford.edu/~dabo/pubs/papers/BLSmultisig.html), using the relic toolkit for cryptographic primitives (pairings, EC, hashing).
@@ -7,7 +75,7 @@ This library is a JavaScript port of the [Chia Network's BLS lib](https://github
 ### Usage
 
 ```bash
-npm i bls-signatures --save # or yarn add bls-signatures
+npm i Chia-Mine/bls-signatures#npm --save # or yarn add Chia-Mine/bls-signatures#npm
 ```
 
 ### Creating keys and signatures
