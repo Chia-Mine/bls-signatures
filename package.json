@@ -1,5 +1,5 @@
 {
-  "name": "bls-signatures",
+  "name": "@chiamine/bls-signatures",
   "version": "0.2.1-beta.0",
   "description": "The most advanced BLS library for JavaScript",
   "main": "blsjs.js",
@@ -36,6 +36,9 @@
     "crypto",
     "cryptography"
   ],
+  "publishConfig": {
+    "access": "public"
+  },
   "devDependencies": {
     "@types/mocha": "^5.2.7",
     "@types/node": "^11.15.18",
