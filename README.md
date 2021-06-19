@@ -60,9 +60,24 @@ ls -l js-bindings/
 
 (4. publish the above content to this branch)  
 This process is for me only.  
-After build js-bindings of bls-signature, I always edit `README.md` to include this 'Important Notice' and
-`git push` to this `npm` branch.  
-Note: This `npm` branch is an orphan branch and not a derivation of any other branches.
+After build js-bindings of bls-signature, I always edit `README.md` to include this 'Important Notice'.  
+In addition to `README.md`, I also edit `package.json` to rename module to `@chiamine/bls-signatures`.  
+This is necessary to publish isolated npm package for replacement of official bls-signature@0.2.5.  
+**reason why I need isolated npm package**  
+I once indicated to install this npm module by  
+```shell
+npm install Chia-Mine/bls-signatures#npm # Install this npm module from this GitHub repository's npm branch
+```
+However, there was an issue where sometimes it unexpectedly installed old npm module instead of the latest commit.  
+I didn't realize the exact cause, but I guess `npm install` from GitHub sometimes not working and instead tries to fetch
+npm files from official npm registry.
+
+So I decided to publish 'scoped' npm module which you can easily install by  
+```shell
+npm install @chiamine/bls-signatures # or yarn add @chiamine/bls-signatures
+```
+
+**Note: This `npm` branch is an orphan branch and not a derivation of any other branches.**  
 
 ---
 
@@ -75,7 +90,7 @@ This library is a JavaScript port of the [Chia Network's BLS lib](https://github
 ### Usage
 
 ```bash
-npm i Chia-Mine/bls-signatures#npm --save # or yarn add Chia-Mine/bls-signatures#npm
+npm i @chiamine/bls-signatures --save # or yarn add @chiamine/bls-signatures
 ```
 
 ### Creating keys and signatures
