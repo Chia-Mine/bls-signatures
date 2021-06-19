@@ -1,7 +1,7 @@
 {
   "name": "@chiamine/bls-signatures",
   "version": "0.2.1-beta.0",
-  "description": "The most advanced BLS library for JavaScript",
+  "description": "Public fork of Chia-Network/bls-signature for patched js-bindings",
   "main": "blsjs.js",
   "types": "blsjs.d.ts",
   "files": [
@@ -20,13 +20,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:Chia-Network/bls-signatures.git"
+    "url": "git@github.com:Chia-Mine/bls-signatures.git"
   },
-  "homepage": "https://github.com/Chia-Network/bls-signatures/tree/master/js-bindings",
+  "homepage": "https://github.com/Chia-Mine/bls-signatures/tree/npm",
   "author": {
-    "name": "Anton Suprunchuk",
-    "email": "antouhou@gmail.com",
-    "url": "https://github.com/antouhou"
+    "name": "ChiaMineJP",
+    "email": "admin@chiamine.jp",
+    "url": "https://github.com/ChiaMineJP"
   },
   "keywords": [
     "bls",
