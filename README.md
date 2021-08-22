@@ -31,7 +31,7 @@ For my current environment, I use
 cd <directory you like>
 git clone https://github.com/Chia-Network/bls-signatures
 cd bls-signatures
-git checkout 6aca6349bd6c8ed369672307885df33cdcd124f9 # You will be warned by git as it is `detached-state` but don't worry.
+git checkout f9db7faa370c4743e48be8a9823232e4d906c4d0 # You will be warned by git as it is `detached-state` but don't worry.
 ```
 2. Build js-binding
 ```shell
